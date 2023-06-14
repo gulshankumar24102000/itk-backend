@@ -28,20 +28,20 @@ router.route("/password/reset/:token").put(resetPassword);
 
 router.route("/logout").get(logout);
 
-router.route("/me").get(isAuthenticatedUser, getUserDetails);
+router.route("/me").get( getUserDetails);
 
-router.route("/password/update").put(isAuthenticatedUser, updatePassword);
+router.route("/password/update").put( updatePassword);
 
-router.route("/me/update").put(isAuthenticatedUser, updateProfile);
+router.route("/me/update").put( updateProfile);
 
 router
   .route("/admin/users")
-  .get( authorizeRoles("admin"), getAllUser);
+  .get(  getAllUser);
 
 router
   .route("/admin/user/:id")
-  .get( authorizeRoles("admin"), getSingleUser)
-  .put( authorizeRoles("admin"), updateUserRole)
-  .delete( authorizeRoles("admin"), deleteUser);
+  .get(  getSingleUser)
+  .put(  updateUserRole)
+  .delete(deleteUser);
 
 module.exports = router;
