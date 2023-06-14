@@ -18,20 +18,20 @@ router.route("/products").get(getAllProducts);
 
 router
   .route("/admin/products")
-  .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminProducts);
+  .get( authorizeRoles("admin"), getAdminProducts);
 
 router
   .route("/admin/product/new")
-  .post(isAuthenticatedUser, authorizeRoles("admin"), createProduct);
+  .post( authorizeRoles("admin"), createProduct);
 
 router
   .route("/admin/product/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct)
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct);
+  .put( authorizeRoles("admin"), updateProduct)
+  .delete( authorizeRoles("admin"), deleteProduct);
 
 router.route("/product/:id").get(getProductDetails);
 
-router.route("/review").put(isAuthenticatedUser, createProductReview);
+router.route("/review").put( createProductReview);
 
 router
   .route("/reviews")
